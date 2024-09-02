@@ -1,4 +1,6 @@
-﻿namespace Demo
+﻿using Demo.Fifa_Game;
+
+namespace Demo
 {
     internal class Program
     {
@@ -10,6 +12,26 @@
             //objects.
             #endregion
             #region Event [example 01]
+            Ball ball = new Ball() ;
+            Console.WriteLine(ball);
+            ball.Location = new Location() { X = 1, Y = 2, Z = 3 };
+            Console.WriteLine(ball);
+            Player player01 = new Player() { PlayerName = "Marwaa", TeamName = "team01" };
+            Player player02 = new Player() { PlayerName = "Marwaan", TeamName = "team01" };
+            Player player03 = new Player() { PlayerName = "maram", TeamName = "team02" };
+            Player player04 = new Player() { PlayerName = "reem", TeamName = "team02" };
+            Refree refree01 = new Refree() { RefreeName = "salem" };
+            ball.BallLocationChanged += player01.Run;
+            ball.BallLocationChanged += player02.Run;
+            ball.BallLocationChanged += player03.Run;
+            ball.BallLocationChanged += player04.Run;
+            ball.BallLocationChanged += refree01.Look;
+            ball.Location = new Location() { X = 11, Y = 12, Z = 13 };
+            ball.Location = new Location() { X = 11, Y = 12, Z = 13 };
+            ball.Location = new Location() { X = 11, Y = 12, Z = 13 };
+            ball.BallLocationChanged -= refree01.Look;
+            ball.Location = new Location() { X = 11, Y = 12, Z = 11 };
+
 
             #endregion
         }

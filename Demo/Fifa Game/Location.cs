@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Demo.Fifa_Game
 {
-    internal class Location
+    public struct Location
     {
         public int X { get; set; }
         public int Y { get; set; }
@@ -15,6 +15,22 @@ namespace Demo.Fifa_Game
         public override string ToString()
         {
             return $"X={X}, Y={Y}, Z={Z}";
+        }
+        public static bool operator==(Location a, Location b)
+        {
+            if ((a.X == b.X) && (a.Y == b.Y) && (a.Z == b.Z))
+            {
+                return true;
+            }
+            return false;
+        }
+        public static bool operator !=(Location a, Location b)
+        {
+            if ((a.X != b.X) || (a.Y != b.Y) || (a.Z != b.Z))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
