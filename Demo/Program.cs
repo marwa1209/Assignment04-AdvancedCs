@@ -59,11 +59,24 @@ namespace Demo
             Note.Add("marwa", "012238475956");
             Note.Add("marwan", "012238475956");
             Console.WriteLine(Note.Count);
-            foreach (DictionaryEntry Item in Note) {
-                Console.WriteLine(Item);
-                Console.WriteLine(Item);
+            //foreach (DictionaryEntry Item in Note)
+            //{
+            //    Console.WriteLine(Item);
+            //}
+            #endregion
+            #region  Hashtables Category(Generic Version)[Dictionary]
+            Dictionary<string, int> Note02 = new Dictionary<string, int>();
+            Note02.Add("rreem", 1);
+            Note02.Add("mai", 1);
+            Note02.Add("rem", 1);
+            Note02.Add("reem", 1);    
+            Note02.TryAdd("reem", 1);//no exception
+            foreach (KeyValuePair<string,int> Item02 in Note02)
+            {
+                Console.WriteLine(Item02);
             }
             #endregion
         }
+
     }
 }
