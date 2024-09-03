@@ -13,8 +13,9 @@ namespace Assignment04_AdvancedCs.Project_assignment04Advanced
         List<Employee> Members;
         public void AddMember(Employee E)
         {
-            throw new NotImplementedException();
+            Members.Add(E);
             ///Try Register for EmployeeLayOff Event Here
+            E.Subscribe(RemoveMember);
         }
         ///CallBackMethod
         public void RemoveMember
@@ -22,9 +23,12 @@ namespace Assignment04_AdvancedCs.Project_assignment04Advanced
         (object sender, EmployeeLayOffEventArgs e)
 
         {
-            throw new NotImplementedException();
             ///Employee Will not be removed from the Club if Age>60
             ///Employee will be removed from Club if Vacation Stock < 0
+            if (e.Cause == LayOffCause.VacationStockBelowZero && sender is not BoardMember)
+            {
+                Members.Remove((Employee)sender);
+            }
         }
     }
 }

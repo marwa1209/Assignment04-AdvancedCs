@@ -13,16 +13,15 @@ namespace Assignment04_AdvancedCs.Project_assignment04Advanced
         List<Employee> Staff;
         public void AddStaff(Employee E)
         {
-            throw new NotImplementedException();
+            Staff.Add(E);
             ///Try Register for EmployeeLayOff Event Here
+             E.Subscribe(RemoveStaff);
         }
         ///CallBackMethod
-        public void RemoveStaff(object sender,
-
-        EmployeeLayOffEventArgs e)
-
+        public void RemoveStaff(object sender, EmployeeLayOffEventArgs e)
         {
-            throw new NotImplementedException();
+            Staff.Remove((Employee)sender);
+            Console.WriteLine($"{sender} Removed Because his {e.Cause}");
         }
     }
 }

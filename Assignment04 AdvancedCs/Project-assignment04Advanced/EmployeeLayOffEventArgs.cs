@@ -13,5 +13,9 @@ namespace Assignment04_AdvancedCs.Project_assignment04Advanced
         {
             Cause = cause;
         }
+
+        public EmployeeLayOffEventArgs()
+        {
+        }
     }
 }
